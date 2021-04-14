@@ -16,7 +16,7 @@ Route::middleware(['auth','role:admin'])->group(function () {
     Route::resource('category', 'CategoryController');
     Route::resource('customers', 'CustomerController');
     Route::resource('products', 'ProductController');
-    Route::resource('units', 'UnitController');
+    Route::resource('unit', 'UnitController');
 	 
     Route::resource('city', 'CityController');
     Route::resource('place', 'PlaceController');

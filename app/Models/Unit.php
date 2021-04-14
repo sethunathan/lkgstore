@@ -10,11 +10,11 @@ class Unit extends Model
 { 
      protected $guarded = []; 
 	
-     protected $table='unit';
+     protected $table='units';
      protected $fillable=['name','id'];
      protected function getall()
     {
-        return DB::table('unit') 
+        return DB::table('units') 
                 ->select('name','id')  
                 ->orderBy('name', 'asc') 
                 ->paginate(25);   

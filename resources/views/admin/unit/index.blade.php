@@ -20,14 +20,15 @@
     <div class="page-header-actions">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{{ url('admin') }}">Home</a></li>
-        <li class="breadcrumb-item active"><a href="javascript:void(0)">Customers</a></li>
+        <li class="breadcrumb-item active"><a href="javascript:void(0)">Unit</a></li>
       </ol>
     </div>
   </div>
   <div class="page-content">
 
     <div class="site-action">
-          <a class="site-action-toggle btn-raised btn btn-success btn-floating waves-effect waves-classic" href="{{ url('admin/unit/create')}}"> 
+          <a class="site-action-toggle btn-raised btn btn-success btn-floating waves-effect waves-classic"
+		  href="{{ url('admin/unit/create')}}"> 
             <i class="front-icon md-plus animation-scale-up" aria-hidden="true"></i>
           </a> 
    </div>
@@ -65,7 +66,7 @@
 
           </tbody>
         </table>
- {{ $rsunit->links() }}
+ {{ $unit->links() }}
       </div>
     </div>
     <!-- End Panel -->

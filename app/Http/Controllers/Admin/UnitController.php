@@ -42,9 +42,8 @@ class UnitController extends Controller
      
     public function store(Request $request)
     {
-	   //
-	    $id= $this->getmax();        
-	   //
+	   
+	    $id= $this->getmax();     
 	  
 		Unit::create(['id'=>$id,         
            'name' => ucfirst(strtolower($request->name))
@@ -60,7 +59,7 @@ class UnitController extends Controller
     public function edit($id)
     { 
         $unit = Unit::find($id); 
-        return view('admin.unit.edit',compact('Unit'));
+        return view('admin.unit.edit',compact('unit'));
 	 
     } 
     
@@ -77,7 +76,7 @@ class UnitController extends Controller
     
     public function destroy($id)
     {
-        DB::table('unit')->where('id',$id)->delete();
+        DB::table('units')->where('id',$id)->delete();
         $msg =['message' => 'Unit Record Deleted!','type' => 'warning'];
         return  redirect('admin/unit')->with($msg);
     }

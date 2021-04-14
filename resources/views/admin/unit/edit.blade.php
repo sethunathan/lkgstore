@@ -17,11 +17,11 @@
 
 <div class="page">
   <div class="page-header">
-    <h1 class="page-title">Edit Customer</h1>
+    <h1 class="page-title">Edit Unit</h1>
     <div class="page-header-actions">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{{ url('admin') }}">Home</a></li>
-        <li class="breadcrumb-item active"><a href="javascript:void(0)">Edit Customer</a></li>
+        <li class="breadcrumb-item active"><a href="javascript:void(0)">Edit Unit</a></li>
       </ol>
     </div>
   </div>
@@ -31,27 +31,19 @@
     <!-- Panel -->
     <div class="panel">
       <div class="panel-body container-fluid">
-        <form action="{{ url('admin/customers/')}}/{{ $customer->id }} }}" method="POST" enctype="multipart/form-data" role="form">
+        <form action="{{ url('admin/unit/')}}/{{ $unit->id }} }}" method="POST" enctype="multipart/form-data" role="form">
            <input type="hidden" name="_method" value="PUT">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">  
 			<div class="form-group">
                 <input type="text" class="form-control" 
-                    required id="id" name="id" readonly value="{{ $customer->id }}"  />
+                    required id="id" name="id" readonly value="{{ $unit->id }}"  />
             </div> 
             <div class="form-group">
                 <input type="text" class="form-control" 
-                    required id="name" name="name"    value="{{ $customer->name }}"  placeholder="Name"/>
+                    required id="name" name="name"    value="{{ $unit->name }}"  placeholder="Name"/>
             </div> 
             
-            <div class="form-group">
-                <input type="text" class="form-control" 
-				   id="mobile" name="mobile"  value="{{ $customer->mobile }}" placeholder="Mobile"/>
-            </div>
-			
-			  <div class="form-group">
-                <input type="text" class="form-control" 
-				   id="password" name="password"  value="{{ $customer->password }}" placeholder="Password"/>
-            </div> 
+           
 			 
 
        <button type="submit" class="btn btn-primary">Submit</button>

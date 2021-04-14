@@ -35,7 +35,7 @@
                                     </a>
                                  </li>
 								 <li class="site-menu-item">
-                                    <a class="animsition-link" href="{{ url('admin/units') }}">
+                                    <a class="animsition-link" href="{{ url('admin/unit') }}">
                                         <span class="site-menu-title">Units</span>
                                     </a>
                                  </li>

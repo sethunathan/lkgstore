@@ -29,7 +29,7 @@
         <div class="panel">
             <div class="panel-body container-fluid">
     
-                <form action="{{ url('admin/customers') }}" method="POST" enctype="multipart/form-data" role="form">
+                <form action="{{ url('admin/unit') }}" method="POST" enctype="multipart/form-data" role="form">
                     @csrf
                     
                     <div>
@@ -38,13 +38,7 @@
                             <input type="text" required class="form-control" id="name" name="name" placeholder="Name">
                         </div>
 
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="mobile" name="mobile" placeholder="Mobile">
-                        </div>
-
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="password" name="password" placeholder="Password">
-                        </div>
+                         
 
                     </div>
                     <div class="text-left">
