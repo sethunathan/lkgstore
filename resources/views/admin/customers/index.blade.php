@@ -43,8 +43,8 @@
             <tr>
               <th>ID</th>
               <th>Name</th>
-              <th>Mobile</th>
-              <th>Image</th>
+              <th>Mobile</th> 
+			  <th class="text-nowrap">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -53,15 +53,21 @@
               <td scope="row">{{ $customer->id }}</td>
               <td> {{ $customer->name }} </td>
               <td> {{ $customer->mobile }} </td>
-              <td>
-                <img class="avatar" height="40" src="http://localhost:8000/global/portraits/{{ rand(1, 20) }}.jpg" />
-              </td>
+               <td class="text-nowrap">
+                   <a href="{{ url('admin/customers') }}/{{$customer->id}}/edit" > Edit<i class="fa fa-pencil text-inverse m-r-10"></i> </a>
+                    <a href="javascript:void(0);" onclick="$(this).find('form').submit();" >Delete <i class="fa fa-close text-danger"></i>
+                     <form action="{{ url('admin/customers') }}/{{$customer->id}}" method="post">
+                                                            <input type="hidden" name="_method" value="DELETE">
+                                                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                      </form>
+                                                    </a>
+               </td>
             </tr>
             @endforeach
 
           </tbody>
         </table>
-
+ {{ $customers->links() }}
       </div>
     </div>
     <!-- End Panel -->

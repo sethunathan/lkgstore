@@ -2,86 +2,69 @@
 
 namespace App\Http\Controllers\Admin;
 
+use DB;
 use App\Http\Controllers\Controller;
-use App\Models\User;
+use App\Models\Customer;
 use Illuminate\Http\Request;
+ 
 
 class CustomerController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   
     public function index()
-    {
-        $customers=User::role('user')->get();
+    { 
+        $customers=Customer::getall();
         return view('admin.customers.index',compact('customers'));
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+ 
     public function create()
     {
+		
         return view('admin.customers.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+     
     public function store(Request $request)
     {
-        //
+        
+	  
+		Customer::create(['id'=>$request->id,         
+           'name' => ucfirst(strtolower($request->name)),
+           'mobile' => $request->mobile,
+           'password' => $request->password,
+            ]);  
+			$msg=''; 
+         return  redirect('admin/customers')->with($msg);  
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function show(User $user)
+ 
+    public function show(Request $request)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(User $user)
+           
+    } 
+    public function edit($id)
+    { 
+        $customer = Customer::find($id); 
+        return view('admin.customers.edit',compact('customer'));
+	 
+    } 
+    
+    public function update(Request $request)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, User $user)
+	  
+       Customer::where('id',$request->id)->update([         
+           'name' => ucfirst(strtolower($request->name)),
+           'mobile' => $request->mobile,
+           'password' => $request->password,
+            ]);  
+			$msg=''; 
+         return  redirect('admin/customers')->with($msg);  
+       
+    } 
+    
+    public function destroy($id)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(User $user)
-    {
-        //
+        DB::table('customers')->where('id',$id)->delete();
+        $msg =['message' => 'Customer Record Deleted!','type' => 'warning'];
+        return  redirect('admin/customers')->with($msg);
     }
 }

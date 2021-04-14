@@ -1,14 +1,16 @@
 @extends('admin.layouts')
 
 @push('styles')
+  <style> form .error {  color: #ff0000;} </style>
+ 
 @endpush
 
 @push('scripts')
 
-
 @endpush
 
 @push('page_scripts')
+
 <script src="{{ url('global')}}/js/Plugin/input-group-file.js"></script>
 @endpush
 
@@ -31,26 +33,26 @@
         <div class="panel">
             <div class="panel-body container-fluid">
     
-                <form action="{{ url('admin/category') }}" method="POST" enctype="multipart/form-data" role="form">
+                <form action="{{ url('admin/category') }}" id="category"   name="category" method="POST" enctype="multipart/form-data" role="form">
                     @csrf
                     
                     <div>
                     
                         <div class="form-group">
-                            <input type="text" class="form-control" id="name" name="name[en]" placeholder="Category Name">
+                            <input type="text" class="form-control" required id="name_en" name="name_en" placeholder="Category Name">
                         </div>
 
                         <div class="form-group">
-                            <input type="text" class="form-control" id="name" name="name[ta]" placeholder="Category in Tamil">
+                            <input type="text" class="form-control" id="name_ta" name="name_ta" placeholder="Category in Tamil">
                         </div>
 
 
                         <div class="form-group">
-                            <textarea class="maxlength-textarea form-control" name="description[en]"  data-plugin="maxlength" data-placement="bottom-right-inside" maxlength="100" rows="2" placeholder="Category Description"></textarea>
+                            <textarea class="maxlength-textarea form-control" name="description_en"  data-plugin="maxlength" data-placement="bottom-right-inside" maxlength="100" rows="2" placeholder="Category Description"></textarea>
                         </div>
 
                         <div class="form-group">
-                            <textarea class="maxlength-textarea form-control" name="description[ta]"  data-plugin="maxlength" data-placement="bottom-right-inside" maxlength="100" rows="2" placeholder="Description in Tamil"></textarea>
+                            <textarea class="maxlength-textarea form-control" name="description_ta"  data-plugin="maxlength" data-placement="bottom-right-inside" maxlength="100" rows="2" placeholder="Description in Tamil"></textarea>
                         </div>
 
                         <div class="form-group">
@@ -63,9 +65,7 @@
                                 </span>
                             </span>
                             </div>
-                        </div>
-                        
-
+                        </div> 
 
                         <div class="form-group">
                             <label for="parent">Parent</label>
@@ -96,5 +96,26 @@
     
         </div>
   </div>
-  
+
+ 
+ 
+  <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script>
+   $(document).ready(function() 
+      {  
+   $('form input').keydown(function (e) {
+     if (e.keyCode == 13) {
+        e.preventDefault();
+        return false;
+    }
+	
+}); 
+   }); 
+</script>
+ 
+
+
+
+ 
+ 
   @endsection

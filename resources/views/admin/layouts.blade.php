@@ -12,7 +12,9 @@
 
   <link rel="apple-touch-icon" href="{{ url('assets')}}/images/apple-touch-icon.png">
   <link rel="shortcut icon" href="{{ url('assets')}}/images/favicon.ico">
-
+  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+  
+  
   <!-- Stylesheets -->
   <link rel="stylesheet" href="{{ url('global')}}/css/bootstrap.min.css">
   <link rel="stylesheet" href="{{ url('global')}}/css/bootstrap-extend.min.css">
@@ -75,6 +77,7 @@
     </div>
   </footer>
   <!-- Core  -->
+
   <script src="{{ url('global')}}/vendor/babel-external-helpers/babel-external-helpers.js"></script>
   <script src="{{ url('global')}}/vendor/jquery/jquery.js"></script>
   <script src="{{ url('global')}}/vendor/popper-js/umd/popper.min.js"></script>

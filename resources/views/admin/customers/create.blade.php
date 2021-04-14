@@ -1,8 +1,6 @@
-@extends('admin.layouts')
-
+@extends('admin.layouts') 
 @push('styles')
-@endpush
-
+@endpush 
 @push('scripts')
 
 
@@ -37,11 +35,11 @@
                     <div>
                     
                         <div class="form-group">
-                            <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+                            <input type="text" required class="form-control" id="name" name="name" placeholder="Name">
                         </div>
 
                         <div class="form-group">
-                            <input type="text" class="form-control" id="name" name="mobile" placeholder="Mobile">
+                            <input type="text" class="form-control" id="mobile" name="mobile" placeholder="Mobile">
                         </div>
 
                         <div class="form-group">
@@ -64,5 +62,20 @@
     
         </div>
   </div>
+   
+  <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script>
+   $(document).ready(function() 
+      {  
+   $('form input').keydown(function (e) {
+     if (e.keyCode == 13) {
+        e.preventDefault();
+        return false;
+    }
+	
+}); 
+   }); 
+</script>
+ 
   
   @endsection

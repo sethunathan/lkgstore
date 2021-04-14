@@ -42,18 +42,19 @@
           <thead>
             <tr>
               <th>ID</th>
-              <th>Name_en</th>
-              <th>Name_ta</th>
+              <th>Name En</th>
+              <th>Name Ta</th>
               <th>Image</th>
               <th>Parent</th>
+			   <th class="text-nowrap">Action</th>
             </tr>
           </thead>
           <tbody>
             @foreach ($categories as $category)
             <tr>
               <td scope="row">{{ $category->id }}</td>
-              <td> {{ $category->name }} </td>
-              <td> {{ $category->getTranslation('name', 'ta') }} </td>
+              <td> {{ $category->name_en}} </td>
+              <td> {{ $category->name_ta}} </td>
               <td>
                 <img class="rounded" height="40" src="{{$category->getFirstMediaUrl('images', 'thumb')}}" />
                 </td>
@@ -62,6 +63,15 @@
                 {{ $category->parent->name }}
                 @endif
               </td>
+			  <td class="text-nowrap">
+                   <a href="{{ url('admin/category') }}/{{$category->id}}/edit" > Edit<i class="fa fa-pencil text-inverse m-r-10"></i> </a>
+                    <a href="javascript:void(0);" onclick="$(this).find('form').submit();" >Delete <i class="fa fa-close text-danger"></i>
+                     <form action="{{ url('admin/category') }}/{{$category->id}}" method="post">
+                                                            <input type="hidden" name="_method" value="DELETE">
+                                                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                      </form>
+                                                    </a>
+               </td>
             </tr>
             @endforeach
 

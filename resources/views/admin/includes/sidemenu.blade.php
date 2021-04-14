@@ -23,6 +23,7 @@
                                     <a class="animsition-link" href="{{ url('admin/category') }}">
                                         <span class="site-menu-title">Categories</span>
                                     </a>
+									
                                 </li> <li class="site-menu-item">
                                     <a class="animsition-link" href="{{ url('admin/customers') }}">
                                         <span class="site-menu-title">Customers</span>

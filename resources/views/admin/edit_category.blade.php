@@ -9,7 +9,7 @@
 
 @endpush
 
-@push('page_scripts')
+@push('page_scripts') 
 
 @endpush
 
@@ -26,21 +26,37 @@
     </div>
   </div>
   <div class="page-content">
-
-
-
-    @include('admin.category_create')
-
+ 
 
     <!-- Panel -->
     <div class="panel">
       <div class="panel-body container-fluid">
-        <form method="POST">
-
+        <form action="{{ url('admin/category') }}" method="PUT" enctype="multipart/form-data" role="form">
+            
+			<div class="form-group">
+                <input type="text" class="form-control" 
+                    required id="id" name="id" readonly value="{{ $category->id }}"  >
+            </div> 
             <div class="form-group">
-                <input type="text" class="form-control" id="name" name="name" value="{{ $category->name }}">
+                <input type="text" class="form-control" 
+                    required id="name_en" name="name_en"  value="{{ $category->name_en }}"  placeholder="Category Name">
+            </div> 
+            
+            <div class="form-group">
+                <input type="text" class="form-control" 
+				 required id="name_ta" name="name_ta"  value="{{ $category->name_ta }}" placeholder="Category in Tamil">
             </div>
-
+			
+			 <div class="form-group">
+                            <textarea class="maxlength-textarea form-control" name="description_en"  data-plugin="maxlength" data-placement="bottom-right-inside" maxlength="100" rows="2"
+							placeholder="Category Description">{{ $category->description_en }}</textarea>
+             </div>
+			 
+			  <div class="form-group">
+                  <textarea class="maxlength-textarea form-control" name="description_ta"  data-plugin="maxlength" data-placement="bottom-right-inside" maxlength="100" rows="2"
+							placeholder="Category Description">{{ $category->description_ta }}</textarea>
+             </div>
+			   
             <div class="form-group">
                 <label for="parent">Parent</label>
                 <select class="form-control" name="parent_category_id" id="parent">

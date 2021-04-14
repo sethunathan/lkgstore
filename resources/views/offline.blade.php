@@ -10,7 +10,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <!-- The above tags *must* come first in the head, any other head content must come *after* these tags-->
     <!-- Title-->
-    <title>Suha - Multipurpose Ecommerce Mobile HTML Template</title>
+    <title>Suha - M</title>
     <!-- Favicon-->
     <link rel="icon" href="img/icons/icon-72x72.png">
     <!-- Apple Touch Icon-->

@@ -20,6 +20,8 @@ Route::middleware(['auth','role:admin'])->group(function () {
     Route::resource('city', 'CityController');
     Route::resource('place', 'PlaceController');
 
+   
+Route::put('admin/customers', 'admin\CustomerController@update');
 
     
 
