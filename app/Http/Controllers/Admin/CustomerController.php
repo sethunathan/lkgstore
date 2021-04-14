@@ -26,7 +26,9 @@ class CustomerController extends Controller
      
     public function store(Request $request)
     {
-        
+	   //
+	   
+	   //
 	  
 		Customer::create(['id'=>$request->id,         
            'name' => ucfirst(strtolower($request->name)),
