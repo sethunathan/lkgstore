@@ -6,16 +6,16 @@ use DB;
  
 use Illuminate\Database\Eloquent\Model; 
 
-class Customer extends Model  
+class Unit extends Model  
 { 
      protected $guarded = []; 
 	
-     protected $table='customers';
-     protected $fillable=['mobile','password','name','id'];
+     protected $table='units';
+     protected $fillable=['name','id'];
      protected function getall()
     {
-        return DB::table('customers') 
-                ->select('name','id','password','mobile')  
+        return DB::table('units') 
+                ->select('name','id')  
                 ->orderBy('name', 'asc') 
                 ->paginate(25);   
    
