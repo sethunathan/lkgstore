@@ -24,7 +24,7 @@ Route::middleware(['auth','role:admin'])->group(function () {
    
 Route::put('admin/customers', 'admin\CustomerController@update');
    
-Route::put('admin/units', 'admin\UnitController@update');
+Route::put('admin/unit', 'admin\UnitController@update');
     
 
        

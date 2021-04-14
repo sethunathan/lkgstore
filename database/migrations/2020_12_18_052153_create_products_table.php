@@ -15,16 +15,13 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->json('name');
-            //$table->string('sku')->unique();
-            $table->double('price', 8, 2)->default(0);
-            $table->double('discount_price', 8, 2)->nullable()->default(0);
+            $table->json('name');         
+            $table->double('price', 10, 2)->default(0);
             $table->text('description')->nullable()->default('');
             $table->integer('category_id')->unsigned();
+		    $table->integer('unit_id')->unsigned();
             $table->timestamps();
-
-
-          //  $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade')->onUpdate('cascade');
+ 
         });
     }
 
