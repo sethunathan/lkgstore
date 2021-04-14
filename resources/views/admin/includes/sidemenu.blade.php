@@ -33,7 +33,13 @@
                                     <a class="animsition-link" href="{{ url('admin/products') }}">
                                         <span class="site-menu-title">Products</span>
                                     </a>
-                                
+                                 </li>
+								 <li class="site-menu-item">
+                                    <a class="animsition-link" href="{{ url('admin/units') }}">
+                                        <span class="site-menu-title">Units</span>
+                                    </a>
+                                 </li>
+								 
 
 
                                 
